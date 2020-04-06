@@ -7,11 +7,12 @@
         <textarea
           class="form-control"
           rows="3"
+          v-model="quote"
         ></textarea>
       </div>
       <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-md-6 col-md-offset-3 form-group">
         <!--ToDo: Add a click event with .prevent and set it equal to the createNew method created below-->
-        <button class="btn btn-primary">Add Quote</button>
+        <button class="btn btn-primary" @click="createNew">Add Quote</button>
       </div>
     </form>
   </div>
@@ -21,10 +22,14 @@
 export default {
   data () {
     return {
+      quote: ""
       // ToDo: Create a data object called quote that is initialized as an empty string
     };
   },
   methods: {
+    createNew(){
+      this.$emit('click', $event.target.quote)
+    }
     // ToDo: Create a method createNew that emits an event listener named quoteAdded that passes the quote data object
     // Re-initialize quote to an empty string
   }

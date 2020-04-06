@@ -12,7 +12,9 @@
             aria-valuenow="60"
             aria-valuemin="0"
             aria-valuemax="100"
+            v-bind:style="{width: ((quoteCount/maxQuotes) * 100) + '%'}"
           >
+          {{quoteCount}}/{{maxQuotes}}
             <!--ToDo: Output the number of quotes displayed on the page out of the max quotes-->
           </div>
         </div>
@@ -23,6 +25,10 @@
 
 <script>
 export default {
+  props:[
+    'quoteCount',
+    'maxQuotes'
+  ]
   // ToDo: Create props that are being passed in App.vue (quoteCount & maxQuotes)
   // Note: use normal array syntax, to pass more then 1 separate by comma
 }

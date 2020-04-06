@@ -1,12 +1,15 @@
 <template>
   <div class="container">
+      <app-header></app-header>
+
     <!--ToDo: Use the Header component selector-->
     <!--Bind data props quoteCount and set it equal to the quote length-->
     <!--Bind data props maxQuotes and set it equal to the maxQuotes created below-->
+      <app-newquote></app-newquote>
 
     <!--ToDo: Use the NewQuote component selector-->
     <!--Initiate an $emit event listener called quoteAdded that is equal to newQuote-->
-
+      <app-quotegrid></app-quotegrid>
     <!--ToDo: Use the QuoteGrid component selector-->
     <!--Bind data props quotes and set it equal to the quotes array created below-->
     <!--Call quoteDeleted that is emitted from the QuoteGrid Component and pass the deleteQuote method created below-->
@@ -19,6 +22,9 @@
 </template>
 
 <script>
+  import QuoteGrid from './components/QuoteGrid.vue'
+import NewQuote from './components/NewQuote.vue'
+import Header from './components/Header.vue'
 //  Todo: Import QuoteGrid, NewQuote, and Header Components
 export default {
   data () {
@@ -39,6 +45,9 @@ export default {
     // This method will splice the quotes array by (index, 1)
   },
   components: {
+    'app-quotegrid': QuoteGrid,
+    'app-newquote': NewQuote,
+    'app-header': Header
     // ToDo: Initiate the QuoteGrid, NewQuote, and Header Components with Custom Selectors
   }
 
